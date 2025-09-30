@@ -1,46 +1,242 @@
-# Getting Started with Create React App
+# React Component Development Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Overview
 
-## Available Scripts
+This project implements two reusable React components - `InputField` and `DataTable` - built with TypeScript, TailwindCSS, and modern React patterns. The components are fully documented using Storybook and include comprehensive testing.
 
-In the project directory, you can run:
+## 🚀 Tech Stack
 
-### `npm start`
+- **React 19** - Latest React with modern hooks and patterns
+- **TypeScript** - Type-safe development
+- **TailwindCSS** - Utility-first CSS framework
+- **Storybook** - Component documentation and development environment
+- **Jest + React Testing Library** - Component testing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📁 Project Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+frontend-assignment/
+├── src/
+│   ├── components/
+│   │   ├── InputField.tsx          # Flexible input component
+│   │   ├── InputField.test.tsx     # InputField tests
+│   │   ├── DataTable.tsx           # Data table component
+│   │   ├── DataTable.test.tsx      # DataTable tests
+│   │   └── ...                     # Other components
+│   ├── stories/
+│   │   ├── InputField.stories.ts   # InputField Storybook stories
+│   │   └── DataTable.stories.ts    # DataTable Storybook stories
+│   ├── App.tsx                     # Demo application
+│   └── index.tsx
+├── .storybook/                     # Storybook configuration
+├── public/
+└── package.json
+```
 
-### `npm test`
+## 🛠️ Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v16 or higher)
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd frontend-assignment
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Start the development server:
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The application will be available at `http://localhost:3001`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Running Storybook
 
-## Learn More
+```bash
+npm run storybook
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Storybook will be available at `http://localhost:6006`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Building for Production
+
+```bash
+npm run build
+```
+
+## 🎯 Components
+
+### InputField
+
+A flexible input component with validation states, multiple variants, and accessibility features.
+
+**Key Features:**
+- Text input with label, placeholder, helper text, error message
+- States: disabled, invalid, loading
+- Variants: filled, outlined, ghost
+- Sizes: small, medium, large
+- Optional: clear button, password toggle
+- Full accessibility support with ARIA labels
+
+**Usage:**
+```tsx
+<InputField
+  label="Email Address"
+  placeholder="Enter your email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  helperText="We'll never share your email."
+  type="email"
+  showClearButton
+/>
+```
+
+### DataTable
+
+A powerful data table component with sorting, selection, and state management.
+
+**Key Features:**
+- Display tabular data with customizable columns
+- Column sorting (ascending/descending)
+- Row selection (single/multiple)
+- Loading and empty states
+- Responsive design
+- Accessibility support
+
+**Usage:**
+```tsx
+const columns = [
+  { key: 'name', title: 'Name', dataIndex: 'name', sortable: true },
+  { key: 'age', title: 'Age', dataIndex: 'age', sortable: true },
+];
+
+<DataTable
+  data={users}
+  columns={columns}
+  selectable
+  onRowSelect={setSelectedUsers}
+/>
+```
+
+## 🧪 Testing
+
+The project includes comprehensive tests for both components:
+
+- **InputField tests:** Cover rendering, user interactions, validation states, and accessibility
+- **DataTable tests:** Cover data rendering, sorting, selection, and state management
+
+Run tests with:
+```bash
+npm test
+```
+
+## 📚 Storybook Documentation
+
+Storybook provides interactive documentation for both components, showcasing:
+
+- All prop variations
+- Different states and variants
+- Usage examples
+- Accessibility features
+
+Access Storybook at: `http://localhost:6006`
+
+## 🎨 Design System
+
+The components follow a consistent design system:
+
+- **Colors:** Blue primary (#3B82F6), Gray neutrals
+- **Typography:** System fonts with proper hierarchy
+- **Spacing:** Consistent padding and margins using Tailwind's spacing scale
+- **Responsive:** Mobile-first approach with breakpoints
+
+## ♿ Accessibility
+
+Both components are built with accessibility in mind:
+
+- Proper ARIA labels and descriptions
+- Keyboard navigation support
+- Screen reader compatibility
+- Focus management
+- Color contrast compliance
+
+## 🚀 Deployment
+
+### Storybook Deployment
+
+The Storybook can be deployed to Chromatic or Vercel:
+
+```bash
+# Build Storybook
+npm run build-storybook
+
+# Deploy to Vercel (requires Vercel CLI)
+npx vercel --prod
+```
+
+### Application Deployment
+
+The React app can be deployed to any static hosting service:
+
+```bash
+npm run build
+# Deploy the build/ folder contents
+```
+
+## 📝 Approach & Architecture
+
+### Component Architecture
+
+- **Modular Design:** Each component is self-contained with its own types and logic
+- **Type Safety:** Full TypeScript coverage with generic types for DataTable
+- **Reusability:** Components accept flexible props for various use cases
+- **Performance:** Optimized with React.memo and useMemo where appropriate
+
+### State Management
+
+- **Local State:** useState for component-specific state
+- **Props-based:** Data flows down through props, events bubble up
+- **Controlled Components:** All inputs are controlled for predictable behavior
+
+### Styling Approach
+
+- **Utility-first:** TailwindCSS for rapid development and consistency
+- **Responsive:** Mobile-first responsive design
+- **Themeable:** CSS custom properties for potential theming
+- **Accessible:** High contrast ratios and proper focus states
+
+### Testing Strategy
+
+- **Unit Tests:** Component behavior and interactions
+- **Integration Tests:** Component composition and data flow
+- **Accessibility Tests:** ARIA compliance and keyboard navigation
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+# data-table
