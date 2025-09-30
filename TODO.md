@@ -1,0 +1,9 @@
+- [x] Create InputField component with all required features
+- [x] Create DataTable component with all required features
+- [x] Create Storybook stories for InputField
+- [x] Create Storybook stories for DataTable
+- [x] Update App.tsx to showcase the components
+- [x] Ensure responsive design and accessibility
+- [x] Create basic tests for components
+- [x] Update README.md with project description and setup instructions
+- [ ] Deploy Storybook to Chromatic or Vercel (ready for deployment)
